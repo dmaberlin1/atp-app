@@ -17,6 +17,11 @@ class Kernel extends ConsoleKernel
         // сюда можно добавить свои команды, если будут
     ];
 
+    protected array $routeMiddleware = [
+
+        'role' => \App\Http\Middleware\RoleMiddleware::class,
+    ];
+
     /**
      * Определение расписания команд.
      */

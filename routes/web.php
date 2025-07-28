@@ -12,3 +12,4 @@ Route::get('/', function () {
 Route::resource('brands', BrandController::class)->middleware(['auth', 'can:admin-or-manager']);
 Route::resource('drivers', DriverController::class)->middleware(['auth', 'can:admin-or-manager']);
 Route::resource('buses', BusController::class)->middleware(['auth', 'can:admin-or-manager']);
+Route::get('/former-drivers', [\App\Http\Controllers\FormerDriverController::class, 'index'])->name('former_drivers.index');

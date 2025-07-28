@@ -28,3 +28,4 @@ todo1.md
 # Project exclude paths
 /storage/app/
 /storage/framework/
+/data/

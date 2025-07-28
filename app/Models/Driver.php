@@ -22,6 +22,18 @@ class Driver extends Model
 
     protected $appends = ['full_name'];
 
+    //Приведение имени к lowercase при сохранении
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = mb_strtolower($value);
+    }
+
+    //возвращение имени с заглавной буквы
+    public function getNameAttribute($value)
+    {
+        return mb_convert_case($value, MB_CASE_TITLE, "UTF-8");
+    }
+
     public function getFirstNameAttribute($value): string
     {
         return ucfirst($value);

@@ -3,7 +3,7 @@
 services:
     mysql:
         image: mysql:5.7
-        container_name: apt_mysql
+        container_name: atp_mysql
         environment:
             MYSQL_DATABASE: atp_mysql
             MYSQL_USER: user
@@ -14,4 +14,15 @@ services:
         volumes:
             - ./data/conf.d:/etc/mysql/conf.d
             - ./data/logs:/logs
-            - /usr/local/var/mysql:/var/lib/mysql
+            - ./data/mysql:/var/lib/mysql
+
+
+    redis:
+        image: redis
+        container_name: redis
+        command: redis-server /usr/local/etc/redis/redis.conf
+        ports:
+            - "6379:6379"
+        volumes:
+            - ./data:/data
+            - ./redis.conf:/usr/local/etc/redis/redis.conf

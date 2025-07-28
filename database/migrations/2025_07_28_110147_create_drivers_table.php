@@ -16,8 +16,6 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->date('birth_date');
-            $table->string('email')->unique();
-            $table->decimal('salary', 10, 2);
             $table->string('image_path')->nullable();
             $table->string('image_description')->nullable();
             $table->softDeletes();
